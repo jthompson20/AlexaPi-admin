@@ -54,6 +54,11 @@
 				<ul class="children collapse" id="sub-item-music">
 					<li>
 						<a class="" href="#">
+							<svg class="glyph social apple"><use xlink:href="#social-apple"/></svg> AirPlay
+						</a>
+					</li>
+					<li>
+						<a class="" href="#">
 							<svg class="glyph social iheart"><use xlink:href="#social-iheart"/></svg> iHeartRadio
 						</a>
 					</li>
