@@ -95,7 +95,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="" href="#">
+						<a class="" href="/tools/volume.php">
 							<svg class="glyph stroked sound on"><use xlink:href="#stroked-sound-on"/></svg> Volume
 						</a>
 					</li>
