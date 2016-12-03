@@ -23,7 +23,7 @@ switch($method):
 endswitch;
 
 // run the command
-$command 	= 'sudo amixer set Master '.$volume.'%';
+$command 	= 'amixer set Master '.$volume.'%';
 $output 	= shell_exec($command);
 echo $output;
 // input new volume into file
