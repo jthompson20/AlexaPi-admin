@@ -34,9 +34,13 @@
 						<?php
 						// get current volume
 						$volume 	= json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json'),TRUE);
+						$volume 	= $volume['volume'];
 						?>
+						<div class="col-lg-6">
+							<label for="vol">Volume: <span class="volume-display"><?php echo $volume; ?></span>%</label>
+							<input id="vol" class="volume-control" type="range" name="volume" min="0" max="100" value="<?php echo $volume; ?>">
+						</div>
 
-						<p>Current Volume: <?php echo $volume['volume']; ?>%</p>
 					</div>
 				</div>
 			</div>
@@ -48,6 +52,14 @@
 
 	<?php include('../inc/foot.php'); ?>
 
+	<script>
+	$(document).ready(function(){
+		$('.volume-control').on('change',function(){
+			$('.volume-display').html(this.value);
+			$.get('/api/v1/volume.php?method=set&volume=' + this.value);
+		});
+	});
+	</script>
 </body>
 
 </html>
