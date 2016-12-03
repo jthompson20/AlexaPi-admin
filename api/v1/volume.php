@@ -3,7 +3,7 @@
 $method	 	= (isset($_REQUEST['method']))? $_REQUEST['method']: 'set';
 
 // grab current volume
-$volume 	= json_decode(file_get_contents("data/volume.json"),TRUE);
+$volume 	= json_decode(file_get_contents(getcwd()."/data/volume.json"),TRUE);
 $volume 	= $volume['volume'];
 
 switch($method):
@@ -27,4 +27,4 @@ $command 	= 'amixer set Master '.$volume.'%';
 exec($command);
 echo $command;
 // input new volume into file
-file_put_contents('data/volume.json',json_encode(array('volume' => $volume)));
+file_put_contents(getcwd().'/data/volume.json',json_encode(array('volume' => $volume)));
