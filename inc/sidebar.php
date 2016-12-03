@@ -99,10 +99,14 @@
 							<svg class="glyph stroked sound on"><use xlink:href="#stroked-sound-on"/></svg> Volume
 						</a>
 					</li>
+					
 				</ul>
 			</li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="/tools/shutdown.php" onclick="return confirm('Are you sure you want to shutdown AlexaPi?')"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"/></svg> Shutdown</a></li>
 
-				
+			
+
 			<!--	
 			<li role="presentation" class="divider"></li>
 			<li><a href="login.html"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Logout</a></li>
