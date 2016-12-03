@@ -26,5 +26,6 @@ endswitch;
 $command 	= 'amixer set Master '.$volume.'%';
 exec($command);
 echo $command;
+echo getcwd().'/data/volume.json';
 // input new volume into file
 file_put_contents(getcwd().'/data/volume.json',json_encode(array('volume' => $volume)));
