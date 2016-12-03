@@ -21,7 +21,8 @@ switch($method):
 		$volume	= ($volume > 0)? $volume - 10: 0;
 		break;
 endswitch;
-
+$output 	= shell_exec('whoami');
+echo $output;
 // run the command
 $command 	= 'amixer set Master '.$volume.'%';
 $output 	= shell_exec($command);
