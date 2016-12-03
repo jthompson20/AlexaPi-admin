@@ -1,3 +1,6 @@
 <?php
+// initialize variables
 $volume 	= (isset($_REQUEST['vol']))? $_REQUEST['vol']: '50';
-echo exec('sudo amixer set Master '.$volume.'%');
+$command 	= 'amixer set Master '.$volume.'%';
+
+echo exec($command);
