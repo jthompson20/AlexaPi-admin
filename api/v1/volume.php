@@ -23,10 +23,10 @@ switch($method):
 endswitch;
 
 // run the command
-$command 	= 'amixer set Master '.$volume.'%';
+$command 	= 'volume '.$volume;
 $output 	= shell_exec($command);
 
 // input new volume into file
 file_put_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json',json_encode(array('volume' => $volume)));
 
-echo json_encode(array('success' => TRUE));
+echo json_encode(array('success' => $output));
