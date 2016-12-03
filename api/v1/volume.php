@@ -21,11 +21,12 @@ switch($method):
 		$volume	= ($volume > 0)? $volume - 10: 0;
 		break;
 endswitch;
-$output 	= shell_exec('whoami');
-echo $output;
+
 // run the command
 $command 	= 'amixer set Master '.$volume.'%';
 $output 	= shell_exec($command);
-echo $output;
+
 // input new volume into file
 file_put_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json',json_encode(array('volume' => $volume)));
+
+echo json_encode(array('success' => TRUE));
