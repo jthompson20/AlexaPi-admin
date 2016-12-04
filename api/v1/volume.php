@@ -27,7 +27,7 @@ switch($method):
 endswitch;
 
 // run the command
-$command 	= ($method == 'mute')? 'mute': 'volume '.$volume;
+$command 	= ($method == 'mute')? 'sudo mute': 'sudo volume '.$volume;
 $output 	= shell_exec($command);
 
 // input new volume into file
