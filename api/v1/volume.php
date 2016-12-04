@@ -28,7 +28,7 @@ endswitch;
 
 // run the command
 $command 	= ($method == 'mute')? 'sudo -u pi mute': 'sudo -u pi volume '.$volume;
-$output 	= shell_exec($command);
+$output 	= system($command);
 
 // input new volume into file
 file_put_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json',json_encode(array('volume' => $volume,'mute' => $muted)));
