@@ -5,8 +5,8 @@ $wav 		= FALSE;	// wav file to be played upon completion
 
 // grab current volume
 $volume 	= json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT']."/api/v1/data/volume.json"),TRUE);
-$volume 	= $volume['volume'];
 $muted 		= $volume['mute'];
+$volume 	= $volume['volume'];
 
 switch($method):
 	// ?method=set&volume=X
