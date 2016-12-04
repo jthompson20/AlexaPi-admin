@@ -12,6 +12,7 @@ switch($method):
 	case "set":
 		// init vars
 		$volume 	= (isset($_REQUEST['volume']))? $_REQUEST['volume']: '50';
+		$wav 		= 'beep.wav';
 		break;
 	// ?method=up
 	case "up":
