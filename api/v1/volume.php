@@ -1,6 +1,7 @@
 <?php
 // initialize variables
 $method	 	= (isset($_REQUEST['method']))? $_REQUEST['method']: 'set';
+$wav 		= FALSE;	// wav file to be played upon completion
 
 // grab current volume
 $volume 	= json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT']."/api/v1/data/volume.json"),TRUE);
@@ -29,5 +30,9 @@ $output 	= shell_exec($command);
 // input new volume into file
 if ($method !== 'mute')
 	file_put_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json',json_encode(array('volume' => $volume)));
+
+// see if we need to run a response WAV
+if ($wav)
+	shell_exec('aplay '.$_SERVER['DOCUMENT_ROOT'].'/api/v1/wav/'.$wav);
 
 echo json_encode(array('success' => $output));
