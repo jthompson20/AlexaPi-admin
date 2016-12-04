@@ -25,6 +25,7 @@ switch($method):
 		break;
 	case "mute":
 		$muted 	= ! $muted;
+		echo $muted;
 endswitch;
 
 // run the command
@@ -32,7 +33,6 @@ $command 	= ($method == 'mute')? 'mute': 'volume '.$volume;
 $output 	= shell_exec($command);
 
 // input new volume into file
-
 file_put_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json',json_encode(array('volume' => $volume,'mute' => $muted)));
 
 // see if we need to run a response WAV
