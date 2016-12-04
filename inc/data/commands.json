@@ -21,12 +21,22 @@
 	},
 	{
 		"skill":	"IFTTT",
+		"command":	"Alexa trigger mute\/unmute",
+		"response":	"API"
+	},
+	{
+		"skill":	"IFTTT",
+		"command":	"Alexa trigger shutdown\/reboot",
+		"response":	"API"
+	},
+	{
+		"skill":	"IFTTT",
 		"command":	"Alexa trigger an insult to Steven",
 		"response":	"API"
 	},
 	{
 		"skill":	"iHeartRadio",
-		"command":	"Alexa play [station]",
+		"command":	"Alexa play iHeartRadio [station]",
 		"response":	"Alexa"
 	},
 	{
