@@ -6,6 +6,7 @@ $wav 		= FALSE;	// wav file to be played upon completion
 // grab current volume
 $volume 	= json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT']."/api/v1/data/volume.json"),TRUE);
 $volume 	= $volume['volume'];
+$muted 		= $volume['mute'];
 
 switch($method):
 	// ?method=set&volume=X
@@ -22,6 +23,8 @@ switch($method):
 	case "down":
 		$volume	= ($volume > 0)? $volume - 10: 0;
 		break;
+	case "mute":
+		$muted 	= ! $muted;
 endswitch;
 
 // run the command
@@ -29,8 +32,8 @@ $command 	= ($method == 'mute')? 'mute': 'volume '.$volume;
 $output 	= shell_exec($command);
 
 // input new volume into file
-if ($method !== 'mute')
-	file_put_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json',json_encode(array('volume' => $volume)));
+
+file_put_contents($_SERVER['DOCUMENT_ROOT'].'/api/v1/data/volume.json',json_encode(array('volume' => $volume,'mute' => $muted)));
 
 // see if we need to run a response WAV
 if ($wav)
